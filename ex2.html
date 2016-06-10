@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ex2</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"> </script>
+</head>
+<body>
+	<select name="list1" id="list1">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+	</select>
+	<select name="list2" id="list2">
+		<option value="1,1">1,1</option>
+		<option value="1,2">1,2</option>
+		<option value="1,3">1,3</option>
+		<option value="2,1">2,1</option>
+		<option value="2,2">2,2</option>
+		<option value="2,3">2,3</option>
+		<option value="3,1">3,1</option>
+		<option value="3,2">3,2</option>
+		<option value="3,3">3,3</option>
+	</select>
+	<script>
+		$(document).ready(function() {
+			$("#list1").change(function() {
+					$('#list2 option').hide();
+	                var opSel = $("#list1 option:selected").val();
+	                $('#list2 option').filter('[value^="' + opSel + '"]').show();
+	        });
+		});
+	</script>
+</body>
+</html>
